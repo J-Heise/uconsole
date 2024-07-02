@@ -9,13 +9,15 @@ uconsole-4g-cm4 enable
 MODEM_READY=0
 RETRIES=10  # Number of retries
 DELAY=1  # Delay in seconds
+COUNTER=0
 
-for ((i=1; i<=RETRIES; i++)); do
+while [[ $COUNTER -lt $RETRIES ]]; do
     if mmcli -L | grep -q "Modem"; then
         MODEM_READY=1
         break
     fi
     sleep $DELAY
+    COUNTER=$((COUNTER+1))
 done
 
 if [[ $MODEM_READY -eq 0 ]]; then
