@@ -15,7 +15,10 @@ echo "Checking the primary port..."
 mmcli -m any | grep "primary port"
 
 # Prompt for the SIM PIN
-read -sp "Enter SIM PIN: " sim_pin
+echo -n "Enter SIM PIN: "
+stty -echo
+read sim_pin
+stty echo
 echo
 
 # Unlock the SIM with PIN
