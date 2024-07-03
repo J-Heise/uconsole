@@ -3,7 +3,7 @@
 ## Wifi disapearing from top bar
 
 ```
-$sudo raspi-config
+sudo raspi-config
 ```
 Advanced Options > Network Config > select [dhcpcd] instead of [Network Manager] and reboot.
 
@@ -54,7 +54,7 @@ mmcli -i 0 --pin 'XXXX'
 sudo nmcli c add type gsm ifname ttyUSB2 con-name 4gnet apn internet
 ```
 
-### Check if connection exists
+### Check if adapter exists
 ```
 sudo ifconfig
-``
+```
