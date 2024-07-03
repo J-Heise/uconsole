@@ -5,6 +5,9 @@ echo "Enabling the 4G modem..."
 uconsole-4g-cm4 enable
 echo "4G modem enabled."
 
+# Check for Modem
+echo -en "AT+CUSBPIDSWITCH?\r\n" | sudo socat - /dev/ttyUSB2,crnl
+
 # Restart ModemManager
 echo "Restarting ModemManager..."
 sudo systemctl restart ModemManager
@@ -30,10 +33,6 @@ echo "SIM unlocked."
 echo "Adding GSM connection..."
 sudo nmcli c add type gsm ifname ttyUSB2 con-name 4gnet apn internet
 echo "GSM connection added."
-
-# Display network interfaces
-echo "Checking network interfaces..."
-sudo ifconfig
 
 # Check if ppp0 adapter is present
 if ifconfig | grep -q "ppp0"; then
