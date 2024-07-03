@@ -1,6 +1,6 @@
 #Notes on CM4 uConsole
 
-## Wifi disapearing from top bar
+## Wifi disappearing from top bar
 
 ```
 sudo raspi-config
